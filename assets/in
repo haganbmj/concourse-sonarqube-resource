@@ -30,11 +30,6 @@ if [[ -z "${sonar_host_url}" ]]; then
 fi
 
 sonar_login=$(jq -r '.source.login // ""' < "${payload}")
-if [[ -z "${sonar_login}" ]]; then
-  echo "sonar_login param has not been specified."
-  exit 1
-fi
-
 sonar_password=$(jq -r '.source.password // ""' < "${payload}")
 
 ce_task_id=$(jq -r '.version.ce_task_id // ""' < "${payload}")

@@ -69,7 +69,7 @@ function sq_qualitygates_project_status {
 # $2 - SonarQube URL. Must end with a slash (required)
 function sq_server_version {
   flags="-s -L"
-  if [[ ! -z "${1}" ]] && [[ "${1}" != "" ]]; then
+  if [[ ! -z "${1}" ]] && [[ "${1}" != "" ]] && [[ "${1}" != ":" ]]; then
     flags+=" -u ${1}"
   fi
   url="${2}api/server/version"
